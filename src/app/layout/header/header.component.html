@@ -1,0 +1,37 @@
+<div class="header">
+<!--   
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/account-settings">Account Settings</a> -->
+
+  <select class="button">
+    <option
+      *ngFor="let item of this.dataList; let i = index"
+      value="{{ item.code }}"
+      [selected]="i == 0"
+    >
+      {{ item.name }}
+    </option>
+  </select>
+
+  <div class="vl"></div>
+
+  <a>
+    <fa-icon [icon]="faBell"></fa-icon>
+  </a>
+
+  <div class="vl"></div>
+
+  <a>
+    <span class="userName">John Doe </span>
+    <fa-icon [icon]="faUser"> </fa-icon>
+  </a>
+</div>
+
+<!-- 
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <div>Header</div>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/account-settings">Account Settings</a>
+  </div>
+</div> -->

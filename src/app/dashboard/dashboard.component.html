@@ -1,0 +1,67 @@
+<div class="dashboard">
+  <div class="hero">
+    <span class="hamburgerTitle">General Request > Purchase Request</span>
+    <div>
+      <span class="heroTitle">Facility Request</span>
+      <button class="newRequest" mat-button (click)="openDialog()">
+        New Request
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div>
+    <button class="dashButtonleft">
+      <fa-icon [icon]="faFilter"></fa-icon>Add Filter
+    </button>
+    
+    <button class="dashButtonright">
+      <fa-icon [icon]="faColumns"> </fa-icon>Cols.
+    </button>
+
+    <div class="dashButtonright">
+    <mat-form-field appearance="standard" >
+      <mat-label><fa-icon [icon]="faSearch"></fa-icon>Search</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Approved"
+        #input
+      />
+    </mat-form-field></div>
+  </div>
+
+  <div>
+    <table class="tableInner">
+      <tr>
+        <th>Ref Id.</th>
+        <th>Type</th>
+        <th>Applied Date</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Remarks</th>
+      </tr>
+      <tr *ngFor="let user of Users">
+        <td (click)="showDiv.options = !showDiv.options">
+          {{ user.refid }}
+          <div>
+            <button *ngIf="showDiv.options" class="tableButton">
+              <a routerLink="/request-dashboard">View |</a></button>
+            <button *ngIf="showDiv.options" class="tableButton">Edit |</button>
+            <button *ngIf="showDiv.options" class="tableButton">Cancel</button>
+          </div>
+        </td>
+        <td>{{ user.type }}</td>
+        <td>{{ user.appliedDate }}</td>
+        <td>{{ user.description }}</td>
+        <td>{{ user.status }}</td>
+        <td>{{ user.remarks }}</td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

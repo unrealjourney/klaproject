@@ -1,0 +1,102 @@
+[
+    {
+        "refid": 1,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 2,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 3,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 4,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 5,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 6,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 7,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 8,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 9,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    },
+    {
+        "refid": 10,
+        "type": "Electrical",
+        "appliedDate": "20 Dec 2020",
+        "reason": "Damaged",
+        "approverRemarks": "Lorem ipsum description...",
+        "note": "Show description here...",
+        "status": "Awaiting Approval",
+        "remarks": "Show remarks here..."
+    }
+]

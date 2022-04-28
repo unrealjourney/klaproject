@@ -1,0 +1,78 @@
+<div class="requestDashboard">
+  <div class="hero">
+    <span class="hamburgerTitle"
+      >General Request > Purchase Request > View</span
+    >
+    <div>
+      <span class="heroTitle">Facility Request - #1</span>
+      <a routerLink="/dashboard"
+        ><button class="goBack" mat-button>Go back</button></a
+      >
+    </div>
+  </div>
+
+  <div class="requestContent">
+    <div *ngFor="let user of Users">
+      <div *ngIf="user.refid === 1">
+        <div class="row">
+          <div class="column">
+            <div>
+              <span class="reqLabel">Reference Id</span>
+              <span class="reqData">{{ user.refid }}</span>
+            </div>
+            <div>
+              <span class="reqLabel">Request Type</span>
+              <span class="reqData">{{ user.type }}</span>
+            </div>
+            <div class="reqTable">
+              <table class="">
+                <tr>
+                  <th>Sl no.</th>
+                  <th>Items</th>
+                  <th>Quantity</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Chair</td>
+                  <td>2</td>
+                  <td>For conference room</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Table</td>
+                  <td>1</td>
+                  <td>For housekeeping</td>
+                </tr>
+              </table>
+            </div>
+
+            <div>
+              <span class="reqLabel">Note</span>
+              <span class="reqData">{{ user.note }}</span>
+            </div>
+            <div>
+              <span class="reqLabel">Approver's Remark</span>
+              <span class="reqData">{{ user.approverRemarks }}</span>
+            </div>
+          </div>
+          <div class="column">
+            <div>
+              <span class="reqLabel">Date</span>
+              <span class="reqData">{{ user.appliedDate }}</span>
+            </div>
+            <div>
+              <span class="reqLabel">Reason</span>
+              <span class="reqData">{{ user.reason }}</span>
+            </div>
+
+            <div>
+              <span class="reqLabel">User's Remark</span>
+              <span class="reqData">{{ user.remarks }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

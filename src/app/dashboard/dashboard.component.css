@@ -1,0 +1,83 @@
+.tableWidth {
+  width: 100%;
+}
+
+.tableInner {
+  margin: 20px;
+  width: 100%;
+  text-align: center;
+  border: 1px gray solid;
+  font-size: small;
+}
+
+th {
+  background: rgb(237, 250, 255);
+  color: black;
+}
+
+
+.dashboard {
+  margin: 5%;
+}
+
+
+.dashButton{
+  padding: .5% 1%;
+  border: none;
+  border-radius: 5px;
+  color: grey;
+
+}
+
+
+.dashButtonleft {
+  padding: 0.5% 1%;
+  border: none;
+  border-radius: 5px;
+  color: grey;
+  float: left;
+}
+
+.dashButtonright {
+  padding: 0.5% 1%;
+  border: none;
+  border-radius: 5px;
+  color: grey;
+  float: right;
+}
+
+.hero {
+  margin: 5%;
+  border-bottom: gray 2px;
+}
+
+.heroTitle {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.hamburgerTitle {
+  font-size: small;
+}
+
+.newRequest {
+  background: rgb(65, 65, 240);
+  color: white;
+  padding: 1%;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  
+}
+
+.newRequest:hover {
+  background-color: rgb(94, 94, 245);
+}
+
+.tableButton {
+  border: none;
+  color: gray;
+  background: none;
+}
+
+

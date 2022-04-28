@@ -1,0 +1,29 @@
+/* :host {
+  background: #5786e1;
+  padding: 30px;
+} */
+
+.sidenav {
+  height: 100%;
+  width: 4%; /* Set the width of the sidebar */
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(175, 175, 175);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.logoTitle {
+  margin: 10%;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(88, 88, 88);
+}
+
+.sideButton {
+  font-size: 30px;
+  padding: 25%;
+  color: rgb(88, 88, 88);
+}

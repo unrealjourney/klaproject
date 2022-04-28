@@ -1,0 +1,141 @@
+<div>
+  <h1>Facility Request</h1>
+
+  <div>
+    <form class="example-form">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ref ID</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Request Type</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let request of requests"
+              [value]="request.value"
+            >
+              {{request.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Reason</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let reason of reasons" [value]="reason.value">
+              {{reason.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width addNew">
+    <tr>
+      <th>Sl no.</th>
+      <th>Items</th>
+      <th>Quantity</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Chair</td>
+      <td>2</td>
+      <td>For conference room</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Table</td>
+      <td>1</td>
+      <td>For housekeeping</td>
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td></td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+        <button class="dialogButton">Add New</button>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Section</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let section of sections"
+              [value]="section.value"
+            >
+              {{section.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>User</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Remarks</mat-label>
+          <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td></td>
+      <td>
+        <button class="dialogButton">Submit</button>
+      </td>
+      <td>
+        <button class="dialogButton">Save</button>
+      </td>
+      <td>
+        <button class="dialogButton">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+  </div>
+</div>
