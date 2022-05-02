@@ -1,4 +1,4 @@
-import { Component, ViewChild, Inject } from '@angular/core';
+import { Component, ViewChild, Inject, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -28,6 +28,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import DataJson from '../dashboard/data.json';
+import { ApiService } from './api.service';
 
 export interface USERS {
   refid: number;
@@ -43,12 +44,10 @@ export interface USERS {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-
+export class DashboardComponent implements OnInit {
   showDiv = {
     options: false,
   };
-
 
   Users: USERS[] = DataJson;
 
@@ -59,7 +58,20 @@ export class DashboardComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private api: ApiService) {}
+
+  fRequest: any;
+  // users: any;
+
+  ngOnInit() {
+    //REST API Response
+    this.api.get('/api5/facilityrequests').subscribe(res => {
+      this.fRequest = res;
+      console.log('data response', this.fRequest);
+    });
+
+    // this.getData();
+  }
 
   openDialog() {
     this.dialog.open(DialogElements);

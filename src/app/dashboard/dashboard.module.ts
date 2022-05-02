@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 @NgModule({
   imports: [
@@ -29,8 +31,10 @@ import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
     MatDatepickerModule,
     MatOptionModule,
     MatNativeDateModule,
+    HttpClientModule
     
   ],
   declarations: [DashboardComponent, DialogElements],
+  providers: [HttpClient, ApiService],
 })
 export class DashboardModule {}

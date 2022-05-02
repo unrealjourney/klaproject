@@ -5,7 +5,8 @@ import { map } from 'rxjs/operators';
 
 
 // Get response URL
-const API_URL = 'https://reqres.in';
+// const API_URL = 'https://reqres.in';
+const API_URL = 'http://localhost:8080'
 @Injectable({
     providedIn: 'root'
 })
