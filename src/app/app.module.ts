@@ -10,6 +10,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { AccountSettingsModule } from './account-settings/account-settings.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RequestDashboardModule } from './request-dashboard/request-dashboard.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
 
 
 @NgModule({
@@ -25,9 +28,11 @@ import { RequestDashboardModule } from './request-dashboard/request-dashboard.mo
     DashboardModule,
     AccountSettingsModule,
     BrowserAnimationsModule,
-    RequestDashboardModule
+    RequestDashboardModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [HttpClient, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

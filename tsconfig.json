@@ -16,6 +16,7 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "noImplicitAny": false,
 
     "moduleResolution": "node",
     "importHelpers": true,
