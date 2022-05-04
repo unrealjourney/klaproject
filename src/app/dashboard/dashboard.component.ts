@@ -29,6 +29,7 @@ import {
 
 import DataJson from '../dashboard/data.json';
 import { ApiService } from './api.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export interface USERS {
   refid: number;
@@ -65,7 +66,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //REST API Response
-    this.api.get('/api5/facilityrequests').subscribe(res => {
+    this.api.get('/api5/facilityrequests').subscribe((res) => {
       this.fRequest = res;
       console.log('data response', this.fRequest);
     });
@@ -83,8 +84,52 @@ export class DashboardComponent implements OnInit {
   templateUrl: 'dashboard-modal.html',
   styleUrls: ['dashboard-modal.css'],
 })
-export class DialogElements {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+export class DialogElements implements OnInit {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private apiService: ApiService
+  ) {}
+
+  // Add data to form
+  formdata;
+  emailid;
+
+  refid;
+  type;
+  appliedDate;
+  description;
+  status;
+  remarks;
+
+  ngOnInit() {
+    this.formdata = new FormGroup({
+      emailid: new FormControl('angular@gmail.com'),
+      passwd: new FormControl('abcd1234'),
+
+      refid: new FormControl(''),
+      type: new FormControl(''),
+      appliedDate: new FormControl(''),
+      description: new FormControl(''),
+      status: new FormControl(''),
+      remarks: new FormControl(''),
+    });
+  }
+  onClickSubmit(data) {
+    this.emailid = data.emailid;
+    this.refid = data.refid;
+    this.type = data.type;
+    this.appliedDate = data.appliedDate;
+    this.description = data.description;
+    this.status = data.status;
+    this.remarks = data.remarks;
+  }
+
+  // addRequest() {
+  //   this.apiService.addRequest(newRequest).subscribe((request) =>
+  //     this.requests.push(request)
+  //   );
+  // }
+
   requests: Request[] = [
     { value: 'electrical-0', viewValue: 'Electrical' },
     { value: 'stationary-1', viewValue: 'Stationary' },
