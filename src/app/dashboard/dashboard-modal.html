@@ -4,8 +4,8 @@
   <div>
     <form
       class="example-form"
-      [formGroup]="formdata"
-      (ngSubmit)="onClickSubmit(formdata.value)"
+      [formGroup]="formdataReq"
+      (ngSubmit)="onClickSubmit(formdataReq.value)"
     >
       <table class="example-full-width" cellspacing="0">
         <tr>
@@ -18,7 +18,12 @@
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Date</mat-label>
-              <input matInput [matDatepicker]="picker" name="appliedDate" formControlName="appliedDate" />
+              <input
+                matInput
+                [matDatepicker]="picker"
+                name="appliedDate"
+                formControlName="appliedDate"
+              />
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker"
@@ -38,7 +43,8 @@
                 <mat-option
                   *ngFor="let request of requests"
                   [value]="request.value"
-                  name="type" formControlName="type"
+                  name="type"
+                  formControlName="type"
                 >
                   {{request.viewValue}}
                 </mat-option>
@@ -60,37 +66,88 @@
           </td>
         </tr>
       </table>
+      <!-- <div [formGroup]="addForm">
+        <table class="example-full-width addNew">
+          <tr>
+            <th>Items</th>
+            <th>Quantity</th>
+            <th>Description</th>
+          </tr>
+          <tr
+            *ngFor="let row of addForm.get('rows')['controls'];let index = index;"
+          >
+            <td><input type="text" [formControl]="row.get('items')" /></td>
+            <td><input type="text" [formControl]="row.get('qty')" /></td>
+            <td><input type="text" [formControl]="row.get('desc')" /></td>
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <button
+                class="dialogButton"
+                (click)="onAddRow()"
+                *ngIf="addForm.get('rows')"
+              >
+                Add New
+              </button>
+              <button class="dialogButton" (click)="onRemoveRow(index)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </table>
+        <label class="switch">
+          <input type="checkbox" class="form-control" formControlName="items" />
+          <span class="slider round">
+            <span class="on"> {{addForm.value.items_value}} </span>
+            <span class="off"> {{addForm.value.items_value}} </span>
+          </span>
+        </label>
+      </div> -->
 
-      <table class="example-full-width addNew">
-        <tr>
-          <th>Sl no.</th>
-          <th>Items</th>
-          <th>Quantity</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-        </tr>
-        <tr>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-        </tr>
-      </table>
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <button class="dialogButton">Add New</button>
-          </td>
-        </tr>
-      </table>
+      <div class="col-md-2" [formGroup]="addForm">
+        <div class="form-group">
+          <label class="label-control">Items</label>
+          <br />
+          <label class="switch">
+            <input
+              type="checkbox"
+              class="form-control"
+              formControlName="items"
+            />
+            <span class="slider round">
+              <span class="on"> {{addForm.value.items_value}} </span>
+              <span class="off"> {{addForm.value.items_value}} </span>
+            </span>
+          </label>
+
+          <table>
+            <thead>
+              <button (click)="onAddRow()" *ngIf="addForm.get('rows')">
+                add row
+              </button>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let row of addForm.get('rows')?.value;let index = index;"
+              >
+                <td>name : <input [formControl]="row.get('name')" /></td>
+                <td>
+                  description : <input [formControl]="row.get('description')" />
+                </td>
+                <td>qty : <input [formControl]="row.get('qty')" /></td>
+                <td>
+                  <button (click)="onRemoveRow(index)">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <table class="example-full-width" cellspacing="0">
         <tr>
@@ -146,7 +203,7 @@
     <p>ID entered is : {{refid}}</p>
     <p>Request Type entered is : {{type}}</p>
     <p>Date entered is : {{appliedDate}}</p>
-    
+
     <p>ID entered is : {{refid}}</p>
     <p>ID entered is : {{refid}}</p>
     <p>ID entered is : {{refid}}</p>

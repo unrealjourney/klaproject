@@ -29,7 +29,13 @@ import {
 
 import DataJson from '../dashboard/data.json';
 import { ApiService } from './api.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 export interface USERS {
   refid: number;
@@ -87,13 +93,22 @@ export class DashboardComponent implements OnInit {
 export class DialogElements implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private apiService: ApiService
-  ) {}
+    private apiService: ApiService,
+    private fb: FormBuilder
+  ) {
+    this.addForm = this.fb.group({
+      items: [null, Validators.required],
+      items_value: ['no', Validators.required],
+    });
+
+    this.rows = this.fb.array([]);
+  }
+
+  addForm: FormGroup;
+  rows: FormArray;
 
   // Add data to form
-  formdata;
-  emailid;
-
+  formdataReq;
   refid;
   type;
   appliedDate;
@@ -102,10 +117,7 @@ export class DialogElements implements OnInit {
   remarks;
 
   ngOnInit() {
-    this.formdata = new FormGroup({
-      emailid: new FormControl('angular@gmail.com'),
-      passwd: new FormControl('abcd1234'),
-
+    this.formdataReq = new FormGroup({
       refid: new FormControl(''),
       type: new FormControl(''),
       appliedDate: new FormControl(''),
@@ -113,9 +125,36 @@ export class DialogElements implements OnInit {
       status: new FormControl(''),
       remarks: new FormControl(''),
     });
+
+    this.addForm.get('items')?.valueChanges.subscribe((val) => {
+      if (val === true) {
+        this.addForm.get('items_value')?.setValue('yes');
+        this.addForm.addControl('rows', this.rows);
+      }
+      if (val === false) {
+        this.addForm.get('items_value')?.setValue('no');
+        this.addForm.removeControl('rows');
+      }
+    });
   }
+
+  onAddRow() {
+    this.rows.push(this.createItemFormGroup());
+  }
+
+  onRemoveRow(rowIndex: number) {
+    this.rows.removeAt(rowIndex);
+  }
+
+  createItemFormGroup(): FormGroup {
+    return this.fb.group({
+      name: null,
+      description: null,
+      qty: null,
+    });
+  }
+
   onClickSubmit(data) {
-    this.emailid = data.emailid;
     this.refid = data.refid;
     this.type = data.type;
     this.appliedDate = data.appliedDate;
