@@ -36,6 +36,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 export interface USERS {
   refid: number;
@@ -94,7 +95,8 @@ export class DialogElements implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private apiService: ApiService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     this.addForm = this.fb.group({
       items: [null, Validators.required],
@@ -136,6 +138,7 @@ export class DialogElements implements OnInit {
         this.addForm.removeControl('rows');
       }
     });
+
   }
 
   onAddRow() {

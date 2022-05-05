@@ -11,6 +11,7 @@ import { AccountSettingsModule } from './account-settings/account-settings.modul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RequestDashboardModule } from './request-dashboard/request-dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CrudModule } from './crud/crud.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     AccountSettingsModule,
     BrowserAnimationsModule,
     RequestDashboardModule,
-    HttpClientModule
+    HttpClientModule,
+    CrudModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

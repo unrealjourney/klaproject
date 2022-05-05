@@ -1,0 +1,38 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of Users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>
+                    <span class="text-primary" (click)="remove(user.id)">Delete</span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <form [formGroup]="skillsFo=-.f--=" (ngSubmit)="onSubmit()">
+
+        <p>
+            <label for="name">Name </label>
+            <input type="text" id="name" name="name" formControlName="name">
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+    </form> -->
+
+</div>>
