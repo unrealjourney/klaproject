@@ -1,0 +1,36 @@
+{
+    "users": [
+        {
+            "refid": 1,
+            "type": "Electrical",
+            "appliedDate": "20 Dec 2020",
+            "description": "more and more and more",
+            "status": "Approved",
+            "remarks": "More"
+        },
+        {
+            "refid": 2,
+            "type": "IT",
+            "appliedDate": "22 Dec 2020",
+            "description": "more and more",
+            "status": "Not Approved",
+            "remarks": "More"
+        },
+        {
+            "refid": 3,
+            "type": "Electrical",
+            "appliedDate": "22 Dec 2020",
+            "description": "more and more",
+            "status": "Not Approved",
+            "remarks": "More"
+        },
+        {
+            "refid": 4,
+            "type": "IT",
+            "appliedDate": "20 Dec 2020",
+            "description": "more and more and more",
+            "status": "Approved",
+            "remarks": "More"
+        }
+    ]
+}

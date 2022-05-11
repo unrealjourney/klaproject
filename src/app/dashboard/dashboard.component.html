@@ -41,9 +41,9 @@
         <th>Status</th>
         <th>Remarks</th>
       </tr>
-      <tr *ngFor="let user of Users">
+      <tr *ngFor="let facility of FacilityRequest">
         <td (click)="showDiv.options = !showDiv.options">
-          {{ user.refid }}
+          {{ facility.refid }}
           <div>
             <button *ngIf="showDiv.options" class="tableButton">
               <a routerLink="/request-dashboard">View |</a></button>
@@ -51,11 +51,11 @@
             <button *ngIf="showDiv.options" class="tableButton">Cancel</button>
           </div>
         </td>
-        <td>{{ user.type }}</td>
-        <td>{{ user.appliedDate }}</td>
-        <td>{{ user.description }}</td>
-        <td>{{ user.status }}</td>
-        <td>{{ user.remarks }}</td>
+        <td>{{ facility.type }}</td>
+        <td>{{ facility.appliedDate }}</td>
+        <td>{{ facility.description }}</td>
+        <td>{{ facility.status }}</td>
+        <td>{{ facility.remarks }}</td>
       </tr>
     </table>
 

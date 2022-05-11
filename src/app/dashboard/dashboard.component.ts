@@ -2,6 +2,7 @@ import { Component, ViewChild, Inject, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from './user.model';
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -37,6 +38,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 export interface USERS {
   refid: number;
@@ -57,7 +59,7 @@ export class DashboardComponent implements OnInit {
     options: false,
   };
 
-  Users: USERS[] = DataJson;
+  // FacilityRequest: USERS[] = DataJson;
 
   faSearch = faSearch;
   faColumns = faColumns;
@@ -71,15 +73,38 @@ export class DashboardComponent implements OnInit {
   fRequest: any;
   // users: any;
 
+  FacilityRequest: any = [];
+
   ngOnInit() {
     //REST API Response
-    this.api.get('/api5/facilityrequests').subscribe((res) => {
-      this.fRequest = res;
-      console.log('data response', this.fRequest);
-    });
+    // this.api.get('/api5/facilityreq').subscribe((res) => {
+    //   this.fRequest = res;
+    //   console.log('data response', this.fRequest);
+    // });
+
+    this.fetchFacility();
 
     // this.getData();
   }
+
+  fetchFacility() {
+    return this.api.getFacilitys().subscribe((data: {}) => {
+      this.FacilityRequest = data;
+    });
+  }
+
+  // remove(id) {
+  //   this.api.delete(id).subscribe((res) => {
+  //     this.fetchFacility();
+  //   });
+  // }
+
+  // add(employee) {
+  //   this.api.create(employee).subscribe((employee: {}) => {
+  //     this.FacilityRequest = employee;
+  //   });
+  //   this.fetchFacility();
+  // }
 
   openDialog() {
     this.dialog.open(DialogElements);
@@ -90,13 +115,20 @@ export class DashboardComponent implements OnInit {
   selector: 'dashboard-modal',
   templateUrl: 'dashboard-modal.html',
   styleUrls: ['dashboard-modal.css'],
+  providers: [DatePipe],
 })
 export class DialogElements implements OnInit {
+  // user: facilityRequest = new facilityRequest();
+
+  user: User = new User();
+  isAdded = false;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private apiService: ApiService,
+    private api: ApiService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private datePipe: DatePipe
   ) {
     this.addForm = this.fb.group({
       items: [null, Validators.required],
@@ -105,6 +137,10 @@ export class DialogElements implements OnInit {
 
     this.rows = this.fb.array([]);
   }
+
+  userTypes = ['Silver', 'Gold', 'Platinum'];
+  currentDate = new Date();
+  userForm!: FormGroup;
 
   addForm: FormGroup;
   rows: FormArray;
@@ -139,6 +175,49 @@ export class DialogElements implements OnInit {
       }
     });
 
+    this.userForm = new FormGroup({
+      refid: new FormControl(''),
+      type: new FormControl(''),
+      appliedDate: new FormControl(''),
+      description: new FormControl(''),
+      status: new FormControl(''),
+      remarks: new FormControl(''),
+      // userType: new FormControl(),
+      // startDate: new FormControl(
+      //   this.datePipe.transform(this.currentDate, 'yyyy-MM-dd')
+      // ),
+    });
+  }
+
+  onSubmit() {
+    this.user.refid = this.userForm.value.refid;
+    this.user.type = this.userForm.value.type;
+    this.user.appliedDate = this.userForm.value.appliedDate;
+    this.user.description = this.userForm.value.description;
+    this.user.status = this.userForm.value.status;
+    this.user.remarks = this.userForm.value.remarks;
+    this.save();
+  }
+
+  // save() {
+  //   this.api.addUser(this.user).subscribe(
+  //     (user) => {
+  //       console.log(user);
+  //       this.isAdded = true;
+  //     },
+  //     (error) => console.log(error)
+  //   );
+  // }
+
+  save() {  
+    this.api.addUser(this.user)  
+      .subscribe(user => console.log(user), error => console.log(error));  
+    this.user = new User();  
+  }  
+
+  resetUserForm() {
+    this.isAdded = false;
+    this.userForm.reset();
   }
 
   onAddRow() {
