@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+import {  MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 @NgModule({
   imports: [
@@ -31,7 +32,9 @@ import { ApiService } from './api.service';
     MatDatepickerModule,
     MatOptionModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MdbFormsModule
+
     
   ],
   declarations: [DashboardComponent, DialogElements],

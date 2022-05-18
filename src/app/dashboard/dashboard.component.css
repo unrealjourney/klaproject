@@ -15,44 +15,31 @@ th {
   color: black;
 }
 
-
 .dashboard {
   margin: 5%;
 }
 
-
-.dashButton{
-  padding: .5% 1%;
-  border: none;
-  border-radius: 5px;
-  color: grey;
-
-}
-
-
-.dashButtonleft {
+.dashButton {
   padding: 0.5% 1%;
   border: none;
   border-radius: 5px;
   color: grey;
-  float: left;
 }
 
-.dashButtonright {
+.heroButton {
   padding: 0.5% 1%;
   border: none;
   border-radius: 5px;
   color: grey;
-  float: right;
 }
 
 .hero {
-  margin: 5%;
+  margin: 2%;
   border-bottom: gray 2px;
 }
 
 .heroTitle {
-  font-size: large;
+  font-size: x-large;
   font-weight: bolder;
 }
 
@@ -63,11 +50,9 @@ th {
 .newRequest {
   background: rgb(65, 65, 240);
   color: white;
-  padding: 1%;
+  padding: 0.5% 1%;
   border: none;
   border-radius: 5px;
-  float: right;
-  
 }
 
 .newRequest:hover {
@@ -79,5 +64,3 @@ th {
   color: gray;
   background: none;
 }
-
-

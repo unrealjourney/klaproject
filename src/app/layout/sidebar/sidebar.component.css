@@ -26,4 +26,16 @@
   font-size: 30px;
   padding: 25%;
   color: rgb(88, 88, 88);
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  
+  color: rgb(88, 88, 88);
+}
+
+a:hover{
+  color: rgb(131, 131, 131);
+
 }

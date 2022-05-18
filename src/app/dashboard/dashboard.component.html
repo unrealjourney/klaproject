@@ -1,38 +1,84 @@
 <div class="dashboard">
   <div class="hero">
-    <span class="hamburgerTitle">General Request > Purchase Request</span>
-    <div>
-      <span class="heroTitle">Facility Request</span>
-      <button class="newRequest" mat-button (click)="openDialog()">
-        New Request
-      </button>
+    <div class="row">
+      <div class="col-md-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">General Request</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="#">Purchase Request</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <span class="heroTitle">Facility Request</span>
+      </div>
+      <div class="col-md-2">
+        <button class="newRequest" (click)="openDialog()">
+          New Request
+        </button>
+      </div>
     </div>
   </div>
 
   <hr />
 
-  <div>
-    <button class="dashButtonleft">
+  <div class="row hero">
+    <button class="col-md-1 heroButton">
       <fa-icon [icon]="faFilter"></fa-icon>Add Filter
     </button>
-    
-    <button class="dashButtonright">
+    <div class="col-md-7"></div>
+    <div class="col-md-2">
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" />
+        <label mdbLabel class="form-label" for="form1"
+          ><fa-icon [icon]="faSearch"></fa-icon>Search</label
+        >
+      </mdb-form-control>
+    </div>
+    <button class="col-md-1 heroButton">
       <fa-icon [icon]="faColumns"> </fa-icon>Cols.
     </button>
-
-    <div class="dashButtonright">
-    <mat-form-field appearance="standard" >
-      <mat-label><fa-icon [icon]="faSearch"></fa-icon>Search</mat-label>
-      <input
-        matInput
-        placeholder="Ex. Approved"
-        #input
-      />
-    </mat-form-field></div>
   </div>
 
   <div>
-    <table class="tableInner">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Ref Id.</th>
+          <th scope="col">Type</th>
+          <th scope="col">Applied Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let facility of FacilityRequest">
+          <td (click)="showDiv.options = !showDiv.options">
+            {{ facility.refid }}
+            <div>
+              <button *ngIf="showDiv.options" class="tableButton">
+                <a routerLink="/request-dashboard">View |</a>
+              </button>
+              <button *ngIf="showDiv.options" class="tableButton">
+                Edit |
+              </button>
+              <button *ngIf="showDiv.options" class="tableButton">
+                Cancel
+              </button>
+            </div>
+          </td>
+          <td>{{ facility.type }}</td>
+          <td>{{ facility.appliedDate }}</td>
+          <td>{{ facility.description }}</td>
+          <td>{{ facility.status }}</td>
+          <td>{{ facility.remarks }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <table class="tableInner">
       <tr>
         <th>Ref Id.</th>
         <th>Type</th>
@@ -46,7 +92,8 @@
           {{ facility.refid }}
           <div>
             <button *ngIf="showDiv.options" class="tableButton">
-              <a routerLink="/request-dashboard">View |</a></button>
+              <a routerLink="/request-dashboard">View |</a>
+            </button>
             <button *ngIf="showDiv.options" class="tableButton">Edit |</button>
             <button *ngIf="showDiv.options" class="tableButton">Cancel</button>
           </div>
@@ -57,7 +104,7 @@
         <td>{{ facility.status }}</td>
         <td>{{ facility.remarks }}</td>
       </tr>
-    </table>
+    </table> -->
 
     <mat-paginator
       [pageSizeOptions]="[5, 10, 25, 100]"

@@ -28,10 +28,11 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.css",
-              "src/master.scss"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +97,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }

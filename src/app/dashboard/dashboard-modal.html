@@ -1,98 +1,97 @@
 <div>
   <h1>Facility Request</h1>
 
-  
-
   <!-- New Form -->
   <div class="row">
-    <div class="col-sm-6, col-md-6">
+    <div class="">
       <h2>User Registration</h2>
       <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="refid">refid</label>
-          <input
-            type="text"
-            class="form-control"
-            id="refid"
-            formControlName="refid"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="userForm.get('refid')?.invalid 
+        <div class="row">
+          <div class="form-group col-md-5">
+            <label for="refid">refid</label>
+            <input
+              type="text"
+              class="form-control"
+              id="refid"
+              formControlName="refid"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="userForm.get('refid')?.invalid 
               && userForm.get('refid')?.touched"
-          ></div>
-        </div>
-        <div class="form-group">
-          <label for="type">Type</label>
-          <input
-            type="text"
-            class="form-control"
-            id="type"
-            formControlName="type"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="userForm.get('type')?.invalid 
+            ></div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="type">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="type"
+              formControlName="type"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="userForm.get('type')?.invalid 
               && userForm.get('type')?.touched"
-          ></div>
-        </div>
-        <div class="form-group">
-          <label for="appliedDate">Applied Date</label>
-          <input
-            type="text"
-            class="form-control"
-            id="appliedDate"
-            formControlName="appliedDate"
-          />
-        </div>
+            ></div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="appliedDate">Applied Date</label>
+            <input
+              type="text"
+              class="form-control"
+              id="appliedDate"
+              formControlName="appliedDate"
+            />
+          </div>
 
-        <div class="form-group">
-          <label for="refid">Description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="description"
-            formControlName="description"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="userForm.get('description')?.invalid 
+          <div class="form-group col-md-5">
+            <label for="refid">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              formControlName="description"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="userForm.get('description')?.invalid 
               && userForm.get('description')?.touched"
-          ></div>
-        </div>
+            ></div>
+          </div>
 
-        <div class="form-group">
-          <label for="status">Status</label>
-          <input
-            type="text"
-            class="form-control"
-            id="status"
-            formControlName="status"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="userForm.get('status')?.invalid 
+          <div class="form-group col-md-5">
+            <label for="status">Status</label>
+            <input
+              type="text"
+              class="form-control"
+              id="status"
+              formControlName="status"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="userForm.get('status')?.invalid 
               && userForm.get('status')?.touched"
-          ></div>
-        </div>
+            ></div>
+          </div>
 
-        <div class="form-group">
-          <label for="remarks">Remarks</label>
-          <input
-            type="text"
-            class="form-control"
-            id="remarks"
-            formControlName="remarks"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="userForm.get('remarks')?.invalid 
+          <div class="form-group col-md-5">
+            <label for="remarks">Remarks</label>
+            <input
+              type="text"
+              class="form-control"
+              id="remarks"
+              formControlName="remarks"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="userForm.get('remarks')?.invalid 
               && userForm.get('remarks')?.touched"
-          ></div>
-        </div>
+            ></div>
+          </div>
 
-        <!-- User Type -->
-        <!-- <div class="form-group">
+          <!-- User Type -->
+          <!-- <div class="form-group">
           <label for="userType">User Type</label>
           <select class="form-control" id="userType" formControlName="userType">
             <option *ngFor="let type of userTypes" [value]="type">
@@ -100,13 +99,14 @@
             </option>
           </select>
         </div> -->
-        <button
-          type="submit"
-          [disabled]="userForm.invalid"
-          class="btn btn-success"
-        >
-          Submit
-        </button>
+          <button
+            type="submit"
+            [disabled]="userForm.invalid"
+            class="btn btn-success col-md-1"
+          >
+            Submit
+          </button>
+        </div>
       </form>
       <div class="row">
         <div class="col-sm-6, col-md-6">
