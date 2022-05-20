@@ -42,7 +42,7 @@ import { DatePipe } from '@angular/common';
 
 export interface USERS {
   refid: number;
-  type: string;
+  request: string;
   appliedDate: string;
   description: string;
   status: string;
@@ -148,7 +148,7 @@ export class DialogElements implements OnInit {
   // Add data to form
   formdataReq;
   refid;
-  type;
+  request;
   appliedDate;
   description;
   status;
@@ -157,7 +157,7 @@ export class DialogElements implements OnInit {
   ngOnInit() {
     this.formdataReq = new FormGroup({
       refid: new FormControl(''),
-      type: new FormControl(''),
+      request: new FormControl(''),
       appliedDate: new FormControl(''),
       description: new FormControl(''),
       status: new FormControl(''),
@@ -177,7 +177,7 @@ export class DialogElements implements OnInit {
 
     this.userForm = new FormGroup({
       refid: new FormControl(''),
-      type: new FormControl(''),
+      request: new FormControl(''),
       appliedDate: new FormControl(''),
       description: new FormControl(''),
       status: new FormControl(''),
@@ -191,7 +191,7 @@ export class DialogElements implements OnInit {
 
   onSubmit() {
     this.user.refid = this.userForm.value.refid;
-    this.user.type = this.userForm.value.type;
+    this.user.request = this.userForm.value.type;
     this.user.appliedDate = this.userForm.value.appliedDate;
     this.user.description = this.userForm.value.description;
     this.user.status = this.userForm.value.status;
@@ -238,7 +238,7 @@ export class DialogElements implements OnInit {
 
   onClickSubmit(data) {
     this.refid = data.refid;
-    this.type = data.type;
+    this.request = data.type;
     this.appliedDate = data.appliedDate;
     this.description = data.description;
     this.status = data.status;
@@ -252,10 +252,18 @@ export class DialogElements implements OnInit {
   // }
 
   requests: Request[] = [
-    { value: 'electrical-0', viewValue: 'Electrical' },
-    { value: 'stationary-1', viewValue: 'Stationary' },
-    { value: 'it-2', viewValue: 'IT' },
-    { value: 'furniture', viewValue: 'Furniture' },
+    { value: '1', viewValue: 'Repair' },
+    { value: '2', viewValue: 'IT Request - No Purchase Involved' },
+    { value: '3', viewValue: 'IT Request - Purchase Involved' },
+    { value: '4', viewValue: 'Stationary/Consumables' },
+    { value: '5', viewValue: 'Furniture' },
+    { value: '6', viewValue: 'Electrical/Plumbing Service' },
+    { value: '7', viewValue: 'Cleaning Service' },
+    { value: '8', viewValue: 'Vehicle Booking' },
+    { value: '9', viewValue: 'Conference Room(Regular)' },
+    { value: '10', viewValue: 'Conference Room(Assembly Block)' },
+    { value: '11', viewValue: 'Conference Room(MLA Hostel)' },
+    { value: '12', viewValue: 'Download Forms' },
   ];
 
   reasons: Reason[] = [
@@ -265,10 +273,10 @@ export class DialogElements implements OnInit {
   ];
 
   sections: Section[] = [
-    { value: 'it-0', viewValue: 'IT Section' },
-    { value: 'office-1', viewValue: 'Office Section' },
-    { value: 'accounts-2', viewValue: 'Accounts Section' },
-    { value: 'hk-3', viewValue: 'Housekeeping' },
-    { value: 'MAE-4', viewValue: 'MAE' },
+    { value: '1', viewValue: 'IT Section' },
+    { value: '2', viewValue: 'Office Section' },
+    { value: '3', viewValue: 'Accounts Section' },
+    { value: '4', viewValue: 'Housekeeping' },
+    { value: '5', viewValue: 'MAE' },
   ];
 }

@@ -10,6 +10,6 @@ import { RequestDashboardComponent } from './request-dashboard.component';
   imports: [
     CommonModule,
     RequestDashboardRoutingModule,
-  ]
+  ],
 })
 export class RequestDashboardModule { }

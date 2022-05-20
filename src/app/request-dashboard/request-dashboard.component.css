@@ -2,8 +2,8 @@
   margin: 5%;
 }
 
-.requestHero {
-  margin: 5%;
+.hero {
+  margin: 2%;
   border-bottom: gray 2px;
 }
 
@@ -19,7 +19,7 @@
 .goBack {
   background: rgb(65, 65, 240);
   color: white;
-  padding: 1%;
+  padding: 5%;
   border: none;
   border-radius: 5px;
   float: right;

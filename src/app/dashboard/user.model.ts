@@ -1,6 +1,6 @@
 export class User {
     refid!: string;
-    type!: string;
+    request!: string;
     appliedDate!: string;
     description!: string;
     status!: string;

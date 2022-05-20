@@ -1,15 +1,27 @@
 <div class="requestDashboard">
   <div class="hero">
-    <span class="hamburgerTitle"
-      >General Request > Purchase Request > View</span
-    >
-    <div>
-      <span class="heroTitle">Facility Request - #1</span>
-      <a routerLink="/dashboard"
-        ><button class="goBack" mat-button>Go back</button></a
-      >
+    <div class="row">
+      <div class="col-md-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">General Request</a></li>
+          <li class="breadcrumb-item"><a href="#">Purchase Request</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="#">View</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <span class="heroTitle">Facility Request - #1</span>
+      </div>
+      <div class="col-md-2">
+        <a routerLink="/dashboard"><button class="goBack" mat-button>Go Back</button></a>
+      </div>
     </div>
   </div>
+
+
 
   <div class="requestContent">
     <div *ngFor="let user of Users">

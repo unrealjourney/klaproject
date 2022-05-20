@@ -55,8 +55,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let facility of FacilityRequest">
-          <td (click)="showDiv.options = !showDiv.options">
+        <tr *ngFor="let facility of FacilityRequest" (click)="showDiv.options = !showDiv.options">
+          <td >
             {{ facility.refid }}
             <div>
               <button *ngIf="showDiv.options" class="tableButton">
@@ -78,33 +78,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <table class="tableInner">
-      <tr>
-        <th>Ref Id.</th>
-        <th>Type</th>
-        <th>Applied Date</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Remarks</th>
-      </tr>
-      <tr *ngFor="let facility of FacilityRequest">
-        <td (click)="showDiv.options = !showDiv.options">
-          {{ facility.refid }}
-          <div>
-            <button *ngIf="showDiv.options" class="tableButton">
-              <a routerLink="/request-dashboard">View |</a>
-            </button>
-            <button *ngIf="showDiv.options" class="tableButton">Edit |</button>
-            <button *ngIf="showDiv.options" class="tableButton">Cancel</button>
-          </div>
-        </td>
-        <td>{{ facility.type }}</td>
-        <td>{{ facility.appliedDate }}</td>
-        <td>{{ facility.description }}</td>
-        <td>{{ facility.status }}</td>
-        <td>{{ facility.remarks }}</td>
-      </tr>
-    </table> -->
 
     <mat-paginator
       [pageSizeOptions]="[5, 10, 25, 100]"
