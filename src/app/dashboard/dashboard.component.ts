@@ -47,6 +47,7 @@ export interface USERS {
   description: string;
   status: string;
   remarks: string;
+  section: string;
 }
 
 @Component({
@@ -68,7 +69,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private api: ApiService) {}
+  constructor(public dialog: MatDialog, private api: ApiService) { }
 
   fRequest: any;
   // users: any;
@@ -153,6 +154,7 @@ export class DialogElements implements OnInit {
   description;
   status;
   remarks;
+  section;
 
   ngOnInit() {
     this.formdataReq = new FormGroup({
@@ -162,6 +164,7 @@ export class DialogElements implements OnInit {
       description: new FormControl(''),
       status: new FormControl(''),
       remarks: new FormControl(''),
+      section: new FormControl(''),
     });
 
     this.addForm.get('items')?.valueChanges.subscribe((val) => {
@@ -182,6 +185,7 @@ export class DialogElements implements OnInit {
       description: new FormControl(''),
       status: new FormControl(''),
       remarks: new FormControl(''),
+      section: new FormControl('')
       // userType: new FormControl(),
       // startDate: new FormControl(
       //   this.datePipe.transform(this.currentDate, 'yyyy-MM-dd')
@@ -196,6 +200,7 @@ export class DialogElements implements OnInit {
     this.user.description = this.userForm.value.description;
     this.user.status = this.userForm.value.status;
     this.user.remarks = this.userForm.value.remarks;
+    this.user.section = this.userForm.value.section;
     this.save();
   }
 
@@ -209,11 +214,11 @@ export class DialogElements implements OnInit {
   //   );
   // }
 
-  save() {  
-    this.api.addUser(this.user)  
-      .subscribe(user => console.log(user), error => console.log(error));  
-    this.user = new User();  
-  }  
+  save() {
+    this.api.addUser(this.user)
+      .subscribe(user => console.log(user), error => console.log(error));
+    this.user = new User();
+  }
 
   resetUserForm() {
     this.isAdded = false;
@@ -243,7 +248,12 @@ export class DialogElements implements OnInit {
     this.description = data.description;
     this.status = data.status;
     this.remarks = data.remarks;
+    this.section = data.section;
+
+    console.table(data);
   }
+
+
 
   // addRequest() {
   //   this.apiService.addRequest(newRequest).subscribe((request) =>

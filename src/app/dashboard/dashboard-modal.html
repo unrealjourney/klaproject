@@ -126,7 +126,7 @@
         <td>
           <mat-form-field appearance="fill" class="form-group">
             <mat-label>Request Type</mat-label>
-            <mat-select id="type" formControlName="type">
+            <mat-select id="request" formControlName="request">
               <mat-option *ngFor="let request of requests" [value]="request.value">
                 {{request.viewValue}}
               </mat-option>

@@ -5,4 +5,5 @@ export class User {
     description!: string;
     status!: string;
     remarks!: string;
+    section!: string;
   }
